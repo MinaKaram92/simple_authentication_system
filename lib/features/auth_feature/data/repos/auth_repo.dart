@@ -1,3 +1,4 @@
+import 'package:authentication_system_flutter/features/auth_feature/data/auth_commands/auth_command.dart';
 import 'package:authentication_system_flutter/features/auth_feature/data/models/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -11,6 +12,8 @@ abstract class AuthRepo {
 
   Future<User?> registerUserWithEmailAndPassword(
       {required UserModel userModel, required String password});
+
+  Future<User?> executeAuthCommand(AuthCommand authCommand);
 
   Future<void> signOut();
 }

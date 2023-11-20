@@ -1,3 +1,4 @@
+import 'package:authentication_system_flutter/features/auth_feature/data/auth_commands/auth_command.dart';
 import 'package:authentication_system_flutter/features/auth_feature/data/models/user_model.dart';
 import 'package:authentication_system_flutter/features/auth_feature/data/repos/auth_repo.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -39,5 +40,10 @@ class AuthRepoImpl implements AuthRepo {
         .set(userModel.toJson());
 
     return userCred.user;
+  }
+
+  @override
+  Future<User?> executeAuthCommand(AuthCommand authCommand) {
+    return authCommand.authCommand();
   }
 }

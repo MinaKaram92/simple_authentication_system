@@ -1,7 +1,7 @@
 import 'package:authentication_system_flutter/core/custom_widgets/custom_material_button.dart';
+import 'package:authentication_system_flutter/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -20,10 +20,14 @@ class HomeView extends StatelessWidget {
               'Home',
               style: TextStyle(fontSize: 30.0),
             ),
-            SizedBox(
+            const SizedBox(
               height: 40.0,
             ),
-            CustomMaterialButton(pressed: () {}, text: 'Signout'),
+            CustomMaterialButton(
+                pressed: () {
+                  /* authBloc.add(UserLoggedOutEvent()); */
+                },
+                text: 'Signout'),
           ],
         ),
       ),
